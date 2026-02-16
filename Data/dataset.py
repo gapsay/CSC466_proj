@@ -7,10 +7,7 @@ import torchvision.transforms as T
 
 class SpectrogramDataset(Dataset):
     def __init__(self, split="train"):
-        if split == "test":
-            self.root_dir = r".\Data\processed_data\test"
-        else:
-            self.root_dir = r".\Data\processed_data\train"
+        self.root_dir = r".\Data\processed_data"
 
         # get the genres and map them to indices
         self.split_dir = os.path.join(self.root_dir, split)

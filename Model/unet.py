@@ -8,9 +8,9 @@ class DoubleConv(nn.Module):
         super().__init__()
 
         self.conv = nn.Sequential(
-            nn.Conv2d(in_channels, out_channels, 3, padding=0, kernel_size=3),
+            nn.Conv2d(in_channels, out_channels, 3, padding=0),
             nn.ReLU(inplace=True),
-            nn.Conv2d(out_channels, out_channels, 3, padding=0, kernel_size=3),
+            nn.Conv2d(out_channels, out_channels, 3, padding=0),
             nn.ReLU(inplace=True),
         )
 
@@ -19,7 +19,7 @@ class DoubleConv(nn.Module):
 
 
 class UNetModel(nn.Module):
-    def __init__(self, in_channels=3, num_genres=10):
+    def __init__(self, in_channels=3, out_channels=10):
         super().__init__()
         # Encoder
         self.enc1 = DoubleConv(in_channels, 64)
@@ -40,7 +40,7 @@ class UNetModel(nn.Module):
             nn.Linear(1024, 512),
             nn.ReLU(True),
             nn.Dropout(0.5),
-            nn.Linear(512, num_genres)
+            nn.Linear(512, out_channels)
         )
 
     def forward(self, x):

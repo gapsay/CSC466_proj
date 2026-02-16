@@ -1,2 +1,4 @@
 /Data/processed_data/
 .gitignore
+/Model/__pycache__/
+/Data/__pycache__/
