@@ -18,7 +18,7 @@ Instead of humans manually designing features, CNNs figure out what matters dire
 I would like to point out that we specifically used a U-Net architecture of CNNs.
 
 #### Evaluation
-Info taken from test.py script
+Info taken from evaluation.py script
 
 ~~~
 ===== Classification Report =====
