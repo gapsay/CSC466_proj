@@ -11,7 +11,7 @@ from torch.nn import functional as F
 
 # hyper parameters
 BATCH_SIZE = 8
-EPOCHS = 5
+EPOCHS = 50
 LR = 5e-5
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

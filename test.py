@@ -1,6 +1,4 @@
 import torch
-from torch.utils.data import DataLoader
-import matplotlib.pyplot as plt
 from Data.dataset import SpectrogramDataset
 from Model.unet import UNetModel
 from PIL import Image
@@ -18,12 +16,10 @@ model.load_state_dict(torch.load(
 ))
 model.eval()
 
-target_filename = "blues.00000.png"
-found = False
+target_filename = "country.00090.png"
 
 for path, label in test_dataset.samples:
     if target_filename in path:
-        found = True
         img = Image.open(path).convert("RGB")
         input_tensor = test_dataset.transform(
             img).unsqueeze(0).to(DEVICE)
